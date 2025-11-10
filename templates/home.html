@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Flask Blog</title>
+</head>
+<body>
+    <h1>Welcome, {{ name }} 👋</h1>
+
+    <h2>My recent posts:</h2>
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
