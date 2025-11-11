@@ -60,7 +60,6 @@ flask_blog/
 ### 1️⃣ Clone this repository
 ```bash
 git clone https://github.com/kaydder/blog_flask.git
-cd <your-repo-name>
 2️⃣ Create and activate a virtual environment
 bash
 Copiar código
