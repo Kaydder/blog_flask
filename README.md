@@ -61,27 +61,19 @@ flask_blog/
 ```bash
 git clone https://github.com/kaydder/blog_flask.git
 2️⃣ Create and activate a virtual environment
-bash
-Copiar código
 python -m venv venv
 # On Windows:
 venv\Scripts\activate
 # On Mac/Linux:
 source venv/bin/activate
 3️⃣ Install dependencies
-bash
-Copiar código
 pip install -r requirements.txt
 4️⃣ Initialize the database
-bash
-Copiar código
 python
 >>> from app import db
 >>> db.create_all()
 >>> exit()
 5️⃣ Run the app
-bash
-Copiar código
 python app.py
 Then open 👉 http://127.0.0.1:5000
 
