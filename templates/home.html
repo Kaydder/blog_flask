@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Flask Blog</title>
-</head>
-<body>
-    <h1>Welcome, {{ name }} 👋</h1>
+{% extends "base.html" %}
 
-    <h2>My recent posts:</h2>
-<ul>
-    {% for post in posts %}
-    <li>
-        <a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% block title %}Home – My Flask Blog{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ name }} 👋</h2>
+
+<div class="actions">
+    <a class="button" href="{{ url_for('new_post') }}">➕ Create New Post</a>
+</div>
+
+<h3>Recent Posts</h3>
+
+{% if posts %}
+    <div class="posts-container">
+        {% for post in posts %}
+        <div class="post-card">
+            <h4><a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a></h4>
+            <p><em>by {{ post.author }}</em></p>
+            <p class="excerpt">{{ post.content[:100] }}{% if post.content|length > 100 %}...{% endif %}</p>
+            <a class="read-more" href="{{ url_for('post_detail', post_id=post.id) }}">Read more →</a>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No posts yet. Be the first to <a href="{{ url_for('new_post') }}">create one</a>!</p>
+{% endif %}
+{% endblock %}
